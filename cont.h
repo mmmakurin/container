@@ -11,15 +11,11 @@ public:
 
     cont(int length) : c_length{ length }
     {
-        //assert(length >= 0);
+        c_data = new int[length] {};
         if (length <= 0)
         {
             throw "Ошибка! Длина массива не может быть меньше или равна 0";
         }
-            
-            c_data = new int[length] {};
-      
-        //if (length > 0)
             //c_data = new int[length] {};
     }
 
@@ -45,8 +41,6 @@ public:
 
     int& operator[](int index)
     {
-        //assert
-
         return c_data[index];
     }
 
@@ -121,7 +115,7 @@ public:
     void insertBefore(int value, int index)
     {
         // Проверяем значение нашего индекса на корректность
-        if (index < 0 && index > c_length)
+        if (index < 0 || index > c_length)
         {
             throw "Ошибка! Неверный / несуществующий индекс";
         }
@@ -148,7 +142,7 @@ public:
     void remove(int index)
     {
         // Проверяем значение нашего индекса на корректность
-        if (index < 0 && index > c_length)
+        if (index < 0 || index > c_length)
         {
             throw "Ошибка! Неверный / несуществующий индекс";
         }
@@ -187,27 +181,4 @@ public:
     { 
         insertBefore(value, c_length); 
     }
-
-
-
-    /*int Divide(int length)
-    {
-        if (length == 0)
-        {
-            throw cont(length);
-        }
-
-        return length;
-    } */
-
-   /* int outOfBounds(int index)
-    {
-        if (index <= 0 && index > c_length)
-        {
-            throw remove;
-            throw insertBefore;
-
-        }
-    } */
-
 };

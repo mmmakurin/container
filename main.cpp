@@ -7,6 +7,14 @@ int main()
 {
     setlocale(LC_ALL, "rus");
     // Объявляем массив из 10 элементов
+    try
+    {
+        cont array(0);
+    }
+    catch (const char* exception)
+    {
+        cout << "Exception caught: " << exception << endl;
+    }
     cont array(10);
      //Заполняем массив числами от 1 до 10
     for (int i{ 0 }; i < 10; ++i)
@@ -21,19 +29,19 @@ int main()
         {
             array.insertBefore(20, -1);
         }
-        catch (const std::exception&)
+        catch (const char* exception)
         {
-            cout << "Ошибка в индексе массива!" << endl;
+            cout << "Ошибка в индексе массива! " << exception << endl;
         }
 
     // Удаляем элемент с индексом 3
     try
     {
-        array.remove(-1);
+        array.remove(150);
     }
-    catch (const std::exception&)
+    catch (const char* exception)
     {
-        cout << "Ошибка в индексе массива!" << endl;
+        cout << "Ошибка в индексе массива! " << exception << endl;
     }
 
     // Добавляем 30 и 40 в конец и начало
