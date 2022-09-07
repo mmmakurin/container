@@ -50,9 +50,9 @@ int main()
 
     // Распечатываем все числа
     for (int i{ 0 }; i < array.getLength(); ++i)
-        std::cout << array[i] << ' ';
+        cout << array[i] << ' ';
 
-    std::cout << '\n';
+    cout << '\n';
 
     return 0;
 }
